@@ -1,0 +1,10 @@
+---
+- name: Creating goup in Ap2
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Grouping
+    group:
+      name: QA
+      state: present

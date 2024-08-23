@@ -1,0 +1,22 @@
+---
+- name: Install and start the service
+  hosts: all
+  become: yes
+  vars:
+    app: nginx  # Corrected the variable declaration from a list to a dictionary
+
+  tasks:
+    - name: Install nginx
+      apt:
+        name: "{{ app }}"
+        state: present
+      tags: 
+        - i-apache  # Fixed tags formatting
+
+    - name: Start the nginx service
+      service:
+        name: "{{ app }}"
+        state: started
+        enabled: yes
+      tags: 
+        - ss-start-apache2  # Fixed tags formatting and corrected the typo from 'apcahe2' to 'apache2'

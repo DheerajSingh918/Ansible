@@ -1,0 +1,18 @@
+---
+- name: Creating new user in Remote server
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: New user
+    user:
+      name: Raj
+      comment: RajKumar
+      uid: 1021
+      group: QA
+      shell: /bin/bash
+#     state: absent   # this is use del user
+#     remove: yes     # this is use to delete all data inside the deleting user
+#     update_password: always  #this help to update passwrod of the user  are two option for updating  1.always 2. on_create
+#     password: {{'Dell@1102' | password_hash('sha512')}}"  # this can help to provide the Password to newly create user and please check how to create encrypted passrd for remote server.
+#{{'Dell@1102' | password_hash('sha512')}}" is use to encrypt the user password 

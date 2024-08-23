@@ -1,0 +1,12 @@
+---
+- name: Removing Crontab from remote server
+  hosts: all
+  become:
+
+
+  tasks:
+  - name: remove cron
+    cron:
+      name: Run Test cron_job
+      state: absent
+      user: ap2

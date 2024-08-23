@@ -1,0 +1,18 @@
+---
+- name: File module
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Creating a File
+      file:
+        path: /home/ap2/oldfile.txt
+        state: touch
+        owner: ap2
+        group: ap2
+        mode: '0764'
+
+    - name: Creating Directory
+      file:
+        path: /home/ap2/myfolder
+        state: directory

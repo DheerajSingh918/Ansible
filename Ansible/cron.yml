@@ -1,0 +1,18 @@
+---
+- name: Adding cron_job
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Cron_job
+    cron:
+      name: Run Test cron_job
+      minute: 20
+      hour: 1
+      day: 12
+      month: '*'
+      weekday: '*'
+      user: ap2
+      job: /home/ap2/script.sh
+#      disabled: yes   # for disabling the running cron job in the remote server. 
+#       disabled: no # for enable the cron job after disable it.

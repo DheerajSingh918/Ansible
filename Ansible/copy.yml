@@ -1,0 +1,13 @@
+---
+- name: Copy files to all hosts
+  hosts: all
+  become: yes
+ 
+  tasks:
+    - name: Copy file
+      copy:
+        src: /home/test/Desktop/example.txt
+        dest: /tmp/
+        owner: root
+        group: root
+        mode: 762

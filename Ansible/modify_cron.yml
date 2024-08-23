@@ -1,0 +1,14 @@
+---
+- name: Moifying cron job (providing ENV variable)
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Providing ENV variable
+    cron:
+      name: VAR
+      env: yes
+      user: ap2
+      job: /home/ap2/script.sh
+      insertafter: PATH
+    

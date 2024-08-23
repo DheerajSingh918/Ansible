@@ -1,0 +1,23 @@
+---
+- name: Deleting file or directory from remote server
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Deleting file
+    file:
+      path: /home/ap2/example.txt
+      state: absent
+
+
+  - name: Deleting Directory
+    file:
+      path: /home/ap2/myfolder
+      state: absent
+
+
+  - name: Deleting non-empty Directory
+    file:
+      path: /home/ap2/docker
+      state: absent
+#      recurse: yes

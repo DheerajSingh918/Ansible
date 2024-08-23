@@ -1,0 +1,18 @@
+---
+- name: File module
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Creating a File
+    file:
+      path: /home/ap2/oldfile.txt
+      state: touch
+      owner: ap2
+      group: ap2
+      mode: '0764'
+     # backup:true  #this cmd is use to take backup of the file before makeing changes in the file.
+  -name: Creating Directory
+   file:
+     path: /home/ap2/myfolder
+     state: directory
